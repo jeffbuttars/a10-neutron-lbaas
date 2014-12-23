@@ -1,11 +1,25 @@
 #!/usr/bin/env python
 # flake8: noqa
 
+import os
+from pip.req import parse_requirements
 from setuptools import setup, find_packages
+
+
+import a10_neutron_lbaas
+
+
+def get_requires(rname='requirements.txt'):
+    this_dir = os.path.realpath(os.path.dirname(__file__))
+    fname = os.path.join(this_dir, rname)
+    reqs = parse_requirements(fname)
+    res = [str(ir.req) for ir in reqs]
+
+    return res
 
 setup(
     name = "a10-neutron-lbaas",
-    version = "1.2.2",
+    version=a10_neutron_lbaas.__version__,
     packages = find_packages(),
 
     author = "A10 Networks",
@@ -26,5 +40,5 @@ setup(
         'Topic :: Internet',
     ],
 
-    install_requires = ['acos-client>=1.1.0']
+    install_requires=get_requires()
 )

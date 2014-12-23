@@ -12,7 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 # flake8: noqa
+__version__ = "1.3.0"
+__version_info__ = ('1', '3', '0')
 
 from a10_openstack_lb import A10OpenstackLBV1
-#from a10_openstack_lb import A10OpenstackLBV2
-from version import VERSION
+VERSION = __version__

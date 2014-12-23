@@ -1,1 +1,4 @@
-VERSION = "1.2.2"
+import a10_neutron_lbaas
+
+
+VERSION = a10_neutron_lbaas.__version__

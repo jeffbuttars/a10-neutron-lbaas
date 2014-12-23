@@ -25,7 +25,7 @@ import v2.handler_lb
 import v2.handler_listener
 import v2.handler_member
 import v2.handler_pool
-import version
+import a10_neutron_lbaas
 
 LOG = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ class A10OpenstackLBBase(object):
             self._verify_appliances()
 
         LOG.info("A10-neutron-lbaas: initializing, version=%s, acos_client=%s",
-                 version.VERSION, acos_client.VERSION)
+                 a10_neutron_lbaas.__version__, acos_client.VERSION)
 
     def _select_a10_device(self, tenant_id):
         s = self.appliance_hash.get_server(tenant_id)
